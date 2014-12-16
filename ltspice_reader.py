@@ -139,7 +139,10 @@ def main():
     print rf.title
     print rf.date
     print rf.plotname
+
     print rf.datapos
+    for v in rf.vars:
+        print "{0}{1}{2}\n".format(v.index, v.name, v.type)
 
 
 if __name__ == "__main__":
