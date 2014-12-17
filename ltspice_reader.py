@@ -62,7 +62,8 @@ class RawFileReader(object):
         tagsRegex = re.compile(tagsRegexStr)
         varsRegex = re.compile(varsRegexStr)
         with open(self.filename, "rb") as fi:
-            for line in fi:
+            line = fi.readline()
+            while line:
                 if tagsRegex.match(line.lower()):
                     tag = line.split(":", 1)[0].strip().lower()
                     contents = line.split(":", 1)[1].strip()
@@ -116,6 +117,8 @@ class RawFileReader(object):
                 else:
                     raise InvalidRawFileError("Unknown line: {}".format(line))
 
+                line = fi.readline()
+
 
 
 
@@ -134,7 +137,8 @@ class ValuesReader(object):
 
 
 def main():
-    filename = r"C:\Apps\LTC\LTspiceIV\Draft14.raw"
+    #filename = r"C:\Apps\LTC\LTspiceIV\Draft14.raw"
+    filename = r"c:\yufei\desktop\ltspice raw files\draft30.raw"
     rf = RawFileReader(filename)
     print rf.title
     print rf.date
