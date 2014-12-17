@@ -143,14 +143,16 @@ class RawFileReader(object):
 
 class BinaryReader(object):
 
-    def __init__(self, filename):
-        self.filename = filename
+    def __init__(self, fi, pos):
+        self.fi = fi
+        self.pos = pos
 
 
 class ValuesReader(object):
 
-    def __init__(self, filename):
-        self.filename = filename
+    def __init__(self, fi, pos):
+        self.fi = fi
+        self.pos = pos
 
 
 def main():
